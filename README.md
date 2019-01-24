@@ -1,5 +1,8 @@
 # library-management-system
 
+[![Python Version](https://img.shields.io/badge/python-3.6.7-brightgreen.svg)](https://python.org)
+[![Django Version](https://img.shields.io/badge/django-1.11.4-brightgreen.svg)](https://djangoproject.com)
+
 A library management system.
 
 ## Author
