@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+              <nav class="red lighten-3">
+      <div class="row">
+    <div class="nav-wrapper ">
+      <div class="col s12 m6 offset-m2">
+        <a href="{% url 'library:index' %}" class="breadcrumb">Main</a>
+        <a class="breadcrumb">Profile</a>
+      </div>
+    </div>
+      </div>
+  </nav>
+
+    <!--Personal Profile-->
+<div class="container">
+    <div class="row">
+    <div class="col s12 m12">
+      <div class="card hoverable teal lighten-2">
+        <div class="card-content white-text">
+          <span class="card-title">Profile</span>
+{#            <div class="container">#}
+
+            <table class="responsive-table highlight">
+                <thread>
+                    <tr>
+                        <th>User Name</th>
+                        <th>{{ user.username }}</th>
+                        <th>User ID</th>
+                        <th>{{ user.id }}</th>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <th>{{ user.email }}</th>
+                    </tr>
+                    <tr>
+                        <th>First Name</th>
+                        <th>{{ user.first_name }}</th>
+                        <th>Last Name</th>
+                        <th>{{ user.last_name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Last Login Date</th>
+                        <th>{{ user.last_login }}</th>
+                        <th>Join Date</th>
+                        <th>{{ user.date_joined }}</th>
+                    </tr>
+                    <tr>
+                        <th>Account Status</th>
+                        {% if user.is_active %}
+                        <th>Active</th>
+                        {% else %}
+                        <th>Not Active</th>
+                        {% endif %}
+                        <th>Account Property</th>
+                        {% if user.is_superuser %}
+                        <th>Super User</th>
+                        {% elif user.is_staff %}
+                        <th>Staff</th>
+                        {% else %}
+                        <th>Reader</th>
+                        {% endif %}
+                    </tr>
+                </thread>
+            </table>
+
+{#            </div>#}
+
+        <div class="card-action">
+          <a href="{% url 'library:profile_edit' %}">Update Profile</a>
+          <a href="{% url 'library:password_edit' %}">Change Password</a>
+        </div>
+
+                          <span class="card-title">Links</span>
+    <div class="card-action">
+    <a href="{% url 'library:loans' %}" id="download-button">Loans List</a>
+    <a href="{% url 'library:comments' %}" id="download-button" >Comments List</a>
+    <a href="{% url 'library:reserves' %}" id="download-button">Reserves List</a>
+    </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{#    <p>#}
+{#    <a href="{% url 'library:profile_edit' %}" id="download-button" class="btn waves-effect waves-light teal lighten-1">Update Profile</a>#}
+{#    <a href="{% url 'library:password_edit' %}" id="download-button" class="btn waves-effect waves-light teal lighten-1">Change Password</a>#}
+{#    </p>#}
+
+{% endblock %}

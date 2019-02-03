@@ -1,0 +1,308 @@
+<!--hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <h1 style="background-color: tomato;color: white;">Hello, world!你好，世界！</h1>
+</body>
+</html>
+-->
+
+
+
+
+<!--sign in-->
+<!--
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/pic/logo.ico">
+
+    <title>Signin Template for Bootstrap</title>
+-->
+    <!-- Bootstrap core CSS -->
+<!--
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+-->
+    <!-- Custom styles for this template -->
+<!--
+    <link href="/static/css/signin.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin" method="post">
+      <img class="mb-4" src="/static/pic/logo.png" alt="" width="100" height="100">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email"/>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password"/>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2018 infinity, Inc.</p>
+    </form>
+  </body>
+</html>
+-->
+
+
+
+{% extends 'base.html' %}
+
+<!--hello page-->
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>#}
+{#  <meta name="viewport" content="width=device-width, initial-scale=1"/>#}
+{#  <title>infinity Library Management System</title>#}
+{##}
+{#  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">#}
+{#  <link href="/static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>#}
+{#  <link href="/static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>#}
+{##}
+{#</head>#}
+{#<body>#}
+{#  <nav class="white" role="navigation">#}
+{#    <div class="nav-wrapper container">#}
+{#      <a href="{% url 'library:index' %}">#}
+{#      <img class="mb-4" src="/static/pic/logo.png" alt="" width="64" height="64">#}
+{#      </a>#}
+{#      <a href="{% url 'library:index' %}" id="logo-container" class="brand-logo">infinity</a>#}
+{#      <ul class="right hide-on-med-and-down">#}
+{#        <li><a href="{% url 'library:books' %}">books</a></li>#}
+{#      </ul>#}
+{##}
+{#      <ul id="nav-mobile" class="sidenav">#}
+{#        <li><a href="">books</a></li>#}
+{#      </ul>#}
+{#      <a href="" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>#}
+{##}
+{#    </div>#}
+{#  </nav>#}
+
+{% block base %}
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">infinity</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">The best library management system ever</h5>
+        </div>
+        <div class="row center">
+          <a href="{% url 'library:books' %}" id="download-button" class="btn waves-effect waves-light teal lighten-1">Browse
+            <i class="material-icons right">cloud</i>
+          </a>
+          <a href="{% url 'library:signup' %}" id="download-button" class="btn waves-effect waves-light teal lighten-1">Sign Up
+            <i class="material-icons right">send</i>
+          </a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="/static/pic/gate.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+<!--
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+
+
+      <div class="container" id="first" style="display: none;">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">infinity</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">The best library management system ever</h5>
+        </div>
+        <div class="row center">
+          <a id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+            <script type="text/javascript">
+                $('#download-button').click(
+                    function()
+                    {
+                        $('#second').css('display','block');
+                        $('#download-button').css('display','block');
+                        setTimeout(function(){$("#second").css('display','none');},200000);
+                    }
+                )
+            </script>
+        </div>
+        <br><br>
+      </div>
+
+
+
+      <div class="row" id="second" >
+<div class="col s6">
+     <div class="col s8 offset-s4 center">
+      <div class="container" id="second" >
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">infinity</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">The best library management system ever</h5>
+        </div>
+        <a class="waves-effect waves-light btn" href="">BROWSE</a>
+        <br><br>
+      </div>
+      </div>
+    </div>
+<div class="col s6">
+      <div class="col s8 center">
+        <form class="form-signin" method="post">
+
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email"/>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password"/>
+            <div class="checkbox mb-3">
+              <label>
+              <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2018 infinity, Inc.</p>
+        </form>
+      </div>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="/static/pic/gate.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+-->
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Hard Work</h5>
+
+            <p class="light">Hours of day and night are spended on designing this library.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Elegant UI</h5>
+
+            <p class="light">Design with Materialize, A modern responsive front-end framework based on Material Design.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">A handful of useful functions and links are provided for you to get accustomed to this library easily.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!--
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Lee Shau Kee Library</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="/static/pic/lizhaoji.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+-->
+<!--
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Different libraries, all the books</h4>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+-->
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Zhangjiang Library</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="/static/pic/zhangjiang.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l9 s12">
+          <h5 class="white-text">infinity</h5>
+          <p class="grey-text text-lighten-4">Welcome to my infinity library! Any advices are welcome!</p>
+
+
+        </div>
+        <!--<div class="col 13 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>-->
+        <div class="col 13 s16">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="{% url 'library:index' %}">ER Model</a></li>
+            <li><a class="white-text" href="{% url 'library:index' %}">Relationship Model</a></li>
+            <li><a class="white-text" href="{% url 'library:index' %}">Project Report</a></li>
+            <!--<li><a class="white-text" href="#!">Link 4</a></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">Made by <a class="brown-text text-lighten-3">Zhongyu Chen</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="/static/js/jquery-3.3.1.min.js"></script>
+  <script src="/static/js/materialize.js"></script>
+  <script src="/static/js/init.js"></script>
+
+{% endblock %}
+
+{#  </body>#}
+{#</html>#}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>infinity Library Management System</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link href="/static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="/static/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+
+  <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+
+</head>
+<body>
+  <nav class="teal lighten-3" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="{% url 'library:index' %}">
+      <img class="mb-4" src="/static/pic/logo.png" alt="" width="64" height="64">
+      </a>
+      <a href="{% url 'library:index' %}" id="logo-container" class="brand-logo">infinity</a>
+
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://127.0.0.1:8000/admin/"><i class="material-icons">security</i></a></li>
+        {% if not user.is_authenticated %}
+        <li><a href="{% url 'library:signup' %}"><i class="material-icons">person_add</i></a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'library:signout' %}">
+                    <i class="material-icons">clear</i>
+                </a>
+            </li>
+                        <li>
+                <a href="{% url 'library:loans' %}">
+                    <i class="material-icons">library_add</i>
+                </a>
+            </li>
+                        <li>
+                <a href="{% url 'library:comments' %}">
+                    <i class="material-icons">comment</i>
+                </a>
+            </li>
+                        <li>
+                <a href="{% url 'library:reserves' %}">
+                    <i class="material-icons">book</i>
+                </a>
+            </li>
+        {% endif %}
+        <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'library:profile' %}">
+                <i class="material-icons">person</i>
+            </a>
+            {% else %}
+            <a href="{% url 'library:signin' %}">
+                <i class="material-icons">person_outline</i>
+            </a>
+            {% endif %}
+        </li>
+        <li><a href="{% url 'library:books' %}"><i class="material-icons">library_books</i></a>
+        </li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+                  <li><a href="http://127.0.0.1:8000/admin/"><i class="material-icons">security</i>Administration</a></li>
+
+        <li><a href="{% url 'library:signup' %}"><i class="material-icons">person_add</i>Sign Up</a></li>
+        {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'library:signout' %}">
+                    <i class="material-icons">clear</i>Sign Out
+                </a>
+            </li>
+                        <li>
+                <a href="{% url 'library:loans' %}">
+                    <i class="material-icons">library_add</i>Loans List
+                </a>
+            </li>
+                        <li>
+                <a href="{% url 'library:comments' %}">
+                    <i class="material-icons">comment</i>Comments List
+                </a>
+            </li>
+                        <li>
+                <a href="{% url 'library:reserves' %}">
+                    <i class="material-icons">book</i>Reserves List
+                </a>
+            </li>
+        {% endif %}
+        <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'library:profile' %}">
+                <i class="material-icons">person</i>Profile
+            </a>
+            {% else %}
+            <a href="{% url 'library:signin' %}">
+                <i class="material-icons">person_outline</i>Sign In
+            </a>
+            {% endif %}
+        </li>
+        <li><a href="{% url 'library:books' %}"><i class="material-icons">library_books</i>Library</a>
+        </li>
+        <!--the other icons shorted-->
+        <li><a href="{% url 'library:index' %}"><i class="material-icons">save</i>ER Model</a></li>
+        <li><a href="{% url 'library:index' %}"><i class="material-icons">save</i>Releationship Model</a></li>
+        <li><a href="{% url 'library:index' %}"><i class="material-icons">save</i>Project Report</a></li>
+      </ul>
+      <a href="" data-target="nav-mobile" class="sidenav-trigger right">
+          <i class="material-icons">menu</i>
+      </a>
+
+    </div>
+  </nav>
+
+  <!--unique part-->
+  {% block base %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+                  <nav class="red lighten-3">
+      <div class="row">
+    <div class="nav-wrapper ">
+      <div class="col s12 m6 offset-m2">
+        <a href="{% url 'library:index' %}" class="breadcrumb">Main</a>
+          <a href="{% url 'library:profile' %}" class="breadcrumb">Profile</a>
+        <a class="breadcrumb">Loans List</a>
+      </div>
+    </div>
+      </div>
+  </nav>
+
+    <!--Loans-->
+
+                        <div class="container">
+    <div class="row">
+    <div class="col s12 m12">
+      <div class="card hoverable grey lighten-4">
+        <div class="card-content teal-text">
+          <span class="card-title">Loans List</span>
+
+    <table class="responsive-table highlight">
+
+
+        <thead>
+            <th>No.</th>
+
+            {% if user.is_staff %}
+            <th>username</th>
+            {% endif %}
+
+            <th>isbn</th>
+            <th>title</th>
+            <th>library</th>
+            <th>loan_date</th>
+            <th>due_date</th>
+            <th>renewed</th>
+            <th>return_date</th>
+            <th>admin_id</th>
+
+            {% if user.is_staff %}
+            <th>return</th>
+            {% endif %}
+        </thead>
+        <tbody>
+            {% for loan in loans %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                {% if user.is_staff %}
+                <td>{{ loan.id.username }}</td>
+                {% endif %}
+                <td>{{ loan.stono.isbn.isbn }}</td>
+                <td><a href="{% url 'library:book' loan.stono.isbn.isbn %}">{{ loan.stono.isbn.title }}</a></td>
+                <td>{{ loan.stono.lno.lname }}</td>
+                <td>{{ loan.loan_date }}</td>
+                <td>{{ loan.due_date }}</td>
+
+                <td>
+                {% if loan.renewed %}
+                <a id="download-button" class="btn disabled waves-effect waves-light teal lighten-1">Renewed</a>
+                {% elif loan.return_date != None %}
+                    <a id="download-button" class="btn disabled waves-effect waves-light teal lighten-1">Returned</a>
+                    {% else %}
+                <a href="{% url 'library:renew' loan.loanno %}" id="download-button" class="btn waves-effect waves-light teal lighten-1">Renew Now</a>
+                {% endif %}
+                </td>
+
+                <td>{{ loan.return_date }}</td>
+                <td>{{ loan.admin_id }}</td>
+
+                {% if user.is_staff %}
+                    {% if loan.return_date == None %}
+                    <td>
+                        <a href="{% url 'library:return_book' loan.loanno %}" id="download-button" class="btn waves-effect waves-light teal lighten-1">Return</a>
+                    </td>
+                    {% else %}
+                    <td>
+                        <a id="download-button" class="btn disabled waves-effect waves-light teal lighten-1">Returned</a>
+                    </td>
+                    {% endif %}
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+      </div>
+    </div>
+  </div>
+</div>
+                    </div>
+
+{% endblock %}

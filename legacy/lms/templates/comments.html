@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+                      <nav class="red lighten-3">
+      <div class="row">
+    <div class="nav-wrapper ">
+      <div class="col s12 m6 offset-m2">
+        <a href="{% url 'library:index' %}" class="breadcrumb">Main</a>
+          <a href="{% url 'library:profile' %}" class="breadcrumb">Profile</a>
+        <a class="breadcrumb">Comments List</a>
+      </div>
+    </div>
+      </div>
+  </nav>
+
+    <!--Comments-->
+
+                    <div class="container">
+    <div class="row">
+    <div class="col s12 m12">
+      <div class="card hoverable grey lighten-4">
+        <div class="card-content teal-text">
+          <span class="card-title">Comments List</span>
+
+    <table class="responsive-table highlight">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>comno</th>
+            <th>isbn</th>
+            <th>title</th>
+            <th>text</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for comment in comments %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ comment.comno }}</td>
+                <td>{{ comment.isbn.isbn }}</td>
+                <td><a href="{% url 'library:book' comment.isbn.isbn %}">{{ comment.isbn.title }}</a></td>
+                <td>{{ comment.text }}</td>
+                <td>
+                    <a href="{% url 'library:deletecomment' comment.comno %}" id="download-button" class="btn waves-effect waves-light red lighten-1">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+                    </div>
+{% endblock %}

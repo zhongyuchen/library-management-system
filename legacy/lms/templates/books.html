@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>infinity Library Management System</title>
+</head>
+<body>
+-->
+
+{% block base %}
+
+      <nav class="red lighten-3">
+      <div class="row">
+    <div class="nav-wrapper ">
+      <div class="col s12 m6 offset-m2">
+        <a href="{% url 'library:index' %}" class="breadcrumb">Main</a>
+        <a class="breadcrumb">Library</a>
+      </div>
+    </div>
+      </div>
+  </nav>
+
+                    <div class="container">
+    <div class="row">
+    <div class="col s12 m12">
+      <div class="card hoverable grey lighten-4">
+        <div class="card-content teal-text">
+          <span class="card-title">Search</span>
+
+    <form action="{% url 'library:books' %}" method="post" name="search">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="card-action center">
+        <button class="waves-effect waves-light btn" name="reset" type="reset">Reset</button>
+        <button class="waves-effect waves-light btn" name="submit">submit</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+                <div class="container">
+    <div class="row">
+    <div class="col s12 m12">
+      <div class="card hoverable grey lighten-4">
+        <div class="card-content teal-text">
+          <span class="card-title">Library</span>
+
+    <table class="responsive-table highlight">
+        <thead>
+            <tr>
+                <th>No.</th>
+            <th>title</th>
+            <th>isbn</th>
+            <th>authors</th>
+            <th>publisher</th>
+            <th>total</th>
+            <th>loaned</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>
+                    <a href="{% url 'library:book' book.isbn %}">{{ book.title }}</a>
+                </td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.authors }}</td>
+                <td>{{ book.publisher }}</td>
+                <td>{{ book.count }}</td>
+                <td>{{ book.loaned }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+                </div>
+      {% if user.is_staff %}
+              <div class="card-action">
+          <a href="{% url 'library:addbook' %}">Add a Book</a>
+        </div>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+<!--
+</body>
+</html>
+-->

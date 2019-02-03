@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+          <nav class="red lighten-3">
+      <div class="row">
+    <div class="nav-wrapper ">
+      <div class="col s12 m6 offset-m2">
+        <a href="{% url 'library:index' %}" class="breadcrumb">Main</a>
+        <a href="{% url 'library:books' %}" class="breadcrumb">Library</a>
+         <a href="{% url 'library:book' storage.isbn.isbn %}" class="breadcrumb">{{ storage.isbn.title }}</a>
+        <a class="breadcrumb">Reserve a Book</a>
+      </div>
+    </div>
+      </div>
+  </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card hoverable grey lighten-4">
+                <div class="card-content teal-text">
+                    <span class="card-title">Reserve a Book</span>
+
+{#    {% if form.errors %}#}
+{#    <p>Error message</p>#}
+{#    {% endif %}#}
+
+    <form action="{% url 'library:reservebook' storage_stono %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="card-action center">
+        <button class="waves-effect waves-light btn" name="reset" type="reset">Reset</button>
+        <button class="waves-effect waves-light btn" name="submit">Reserve</button>
+        </div>
+    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
