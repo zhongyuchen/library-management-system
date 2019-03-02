@@ -1,5 +1,6 @@
 # library-management-system
 
+![build status](https://img.shields.io/badge/build-passing-green.svg)
 [![python version](https://img.shields.io/badge/python-3.6.5-fbb4ae.svg)](https://python.org)
 [![Django version](https://img.shields.io/badge/Django-2.0.5-b3cde3.svg)](https://www.djangoproject.com/)
 [![MySQL version](https://img.shields.io/badge/MySQL-5.9.7-ccebc5.svg)](https://www.mysql.com/)
@@ -49,6 +50,17 @@ pip install Django==2.0.5
 ```commandline
 python manage.py runserver
 ```
+
+## MySQL Schema
+
+In `book` schema, the following tables are important:
+* `auth_user` stores all the users including readers, staff and superusers 
+* `books` stores the book info
+* `libraries` stores the library info
+* `loans` stores the loan info
+* `reserves` stores the reservations
+* `comments` stores the comments
+* `storages` stores the storage info
 
 ## Library Management System
 
@@ -103,7 +115,7 @@ python manage.py runserver
     * Confirm a reservation (confirm that the book is moved to another desired library)
     * View all reservations
     * View all loans
-4. Superuser:
+4. Superusers:
     * Anything that staff can do
     * log into Django administration site (anything can be changed here)
     
