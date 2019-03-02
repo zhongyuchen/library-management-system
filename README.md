@@ -9,6 +9,8 @@
 
 Good-looking, adaptive and powerful library management system website implemented with python package Django, using MySQL for database and materialize for web design, embedded with a lot of nice features.
 
+![homepage](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/homepage.jpg?token=AgmiqBxZHqKfEPCixdVH0ATO7raM8uRNks5cg4AmwA%3D%3D)
+
 ## Prerequisites
 
 ### MySQL
@@ -126,6 +128,32 @@ In `book` schema, the following tables are important:
 3. When a reader tries to return a book, a staff member can confirm that the book is returned
 4. After a reader tries to reserve a book, a staff member can confirmed that the book is moved to another library that the reader desired
 5. When a book is loaned or reserved, it can not be deleted
+
+### Screen Shots
+
+* Sign Up
+![sign up](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/signup.jpg?token=AgmiqFZjwlsgdD0sujXdGrFupr7ICuijks5cg4CgwA%3D%3D)
+
+* Profile
+![profile](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/profile.jpg?token=AgmiqFSo5c3jd18fdRBQgC-50nJRjzJvks5cg4D0wA%3D%3D)
+
+* Libraray
+![library](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/library.jpg?token=AgmiqFRn_VpFT-ngEF9DdCfO5uLaqzdbks5cg4DSwA%3D%3D)
+
+* Book
+![book](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/book.jpg?token=AgmiqPYe_X-eewek9I8nu4ZZHC9Dmntcks5cg4EMwA%3D%3D)
+
+* Comments
+![comments](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/comments.jpg?token=AgmiqLY2nkLJuSavIwGbQ5YDoWGq3yM8ks5cg4EkwA%3D%3D)
+
+* Loans
+![loans](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/loans.jpg?token=AgmiqMm3rEHOjWUuEWYS3bC5J90pVnB7ks5cg4E5wA%3D%3D)
+
+* Reservations
+![reserve](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/reserve.jpg?token=AgmiqHjklVJYgW5-kZBZHu8dL_OlHw_4ks5cg4FNwA%3D%3D)
+
+* Django Administration Site
+![admin](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/admin.jpg?token=AgmiqB-nqv5xvQXhIlLw-zBpO6M_GthMks5cg4GfwA%3D%3D)
 
 ## Author
 
