@@ -137,7 +137,7 @@ In `book` schema, the following tables are important:
 * Profile
 ![profile](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/profile.jpg?token=AgmiqFSo5c3jd18fdRBQgC-50nJRjzJvks5cg4D0wA%3D%3D)
 
-* Libraray
+* Library
 ![library](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/library.jpg?token=AgmiqFRn_VpFT-ngEF9DdCfO5uLaqzdbks5cg4DSwA%3D%3D)
 
 * Book
