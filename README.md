@@ -9,7 +9,7 @@
 
 Good-looking, adaptive and powerful library management system website implemented with python package Django, using MySQL for database and materialize for web design, embedded with a lot of nice features.
 
-![homepage](https://raw.githubusercontent.com/czhongyu/library-management-system/master/source/pic/homepage.jpg?token=AgmiqBxZHqKfEPCixdVH0ATO7raM8uRNks5cg4AmwA%3D%3D)
+![homepage](/source/pic/homepage.jpg)
 
 ## Prerequisites
 
