@@ -1,13 +1,5 @@
 {% extends 'base.html' %}
 
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>infinity Library Management System</title>#}
-{#</head>#}
-{#<body>#}
-
 {% block base %}
 
                       <nav class="red lighten-3">
@@ -28,10 +20,6 @@
                 <div class="card-content teal-text">
                     <span class="card-title">Sign Up</span>
 
-{#    {% if form.errors %}#}
-{#    <p>Error message</p>#}
-{#    {% endif %}#}
-
     <form method="post" action="{% url 'library:signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
@@ -49,5 +37,3 @@
     </div>
 
 {% endblock %}
-{#</body>#}
-{#</html>#}

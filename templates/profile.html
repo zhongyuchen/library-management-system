@@ -20,7 +20,6 @@
       <div class="card hoverable teal lighten-2">
         <div class="card-content white-text">
           <span class="card-title">Profile</span>
-{#            <div class="container">#}
 
             <table class="responsive-table highlight">
                 <thread>
@@ -65,8 +64,6 @@
                 </thread>
             </table>
 
-{#            </div>#}
-
         <div class="card-action">
           <a href="{% url 'library:profile_edit' %}">Update Profile</a>
           <a href="{% url 'library:password_edit' %}">Change Password</a>
@@ -83,11 +80,5 @@
     </div>
   </div>
 </div>
-
-
-{#    <p>#}
-{#    <a href="{% url 'library:profile_edit' %}" id="download-button" class="btn waves-effect waves-light teal lighten-1">Update Profile</a>#}
-{#    <a href="{% url 'library:password_edit' %}" id="download-button" class="btn waves-effect waves-light teal lighten-1">Change Password</a>#}
-{#    </p>#}
 
 {% endblock %}

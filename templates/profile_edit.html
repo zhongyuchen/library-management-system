@@ -22,10 +22,6 @@
                 <div class="card-content teal-text">
                     <span class="card-title">Update Profile</span>
 
-{#    {% if form.errors %}#}
-{#    <p>Error message</p>#}
-{#    {% endif %}#}
-
     <form action="{% url 'library:profile_edit' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}

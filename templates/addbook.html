@@ -20,9 +20,6 @@
             <div class="card hoverable grey lighten-4">
                 <div class="card-content teal-text">
                     <span class="card-title">Add a Book</span>
-{#    {% if form.errors %}#}
-{#    <p>Error message</p>#}
-{#    {% endif %}#}
 
     <form action="{% url 'library:addbook' %}" method="post">
         {% csrf_token %}
