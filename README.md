@@ -17,15 +17,24 @@ Good-looking, adaptive and powerful library management system website implemente
 
 1. Install [MySQL](https://dev.mysql.com/downloads/mysql/)
 2. Install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) 
-3. Create an empty schema `book` in MySQL
-4. Import /source/book.sql file into `book` schema via
-    * Replace `<USERNAME>` with the your local instance MySQL username, which is usually `root`
-    * Replace `<LOCATION>` with the actual path of /source/book.sql file
+3. Create an empty schema named `book` in MySQL
+4. Import `/source/book.sql` file into `book` schema via
+    * Replace `USERNAME` with the your local instance MySQL username, which is usually `root`
+    * Replace `PATH` with the actual path of `/source/book.sql` file
     * Input the password for your local instance MySQL afterwards
 
 ```commandline
-mysql -u <USERNAME> -p book < <LOCATION>
+mysql -u USERNAME -p book < PATH
 ```
+
+5. In `book` schema, the following tables are important:
+   * `auth_user` stores all the users including readers, staff and superusers 
+   * `books` stores the book info
+   * `libraries` stores the library info
+   * `loans` stores the loan info
+   * `reserves` stores the reservations
+   * `comments` stores the comments
+   * `storages` stores the storage info
 
 ### PyCharm
 
@@ -52,17 +61,6 @@ pip install Django==2.0.5
 ```commandline
 python manage.py runserver
 ```
-
-## MySQL Schema
-
-In `book` schema, the following tables are important:
-* `auth_user` stores all the users including readers, staff and superusers 
-* `books` stores the book info
-* `libraries` stores the library info
-* `loans` stores the loan info
-* `reserves` stores the reservations
-* `comments` stores the comments
-* `storages` stores the storage info
 
 ## Library Management System
 
@@ -154,6 +152,42 @@ In `book` schema, the following tables are important:
 
 * Django Administration Site
 ![admin](/source/pic/admin.jpg)
+
+## Command Lines
+
+The following command lines are crucial in building this project:
+
+* start django project and app
+```commandline
+django-admin startproject lms
+python manage.py startapp library
+```
+
+* Let Django builds basic tables in MySQL
+```commandline
+python manage.py migrate
+```
+
+* Django models -> MySQL tables
+```commandline
+python manage.py makemigrations library
+python manage.py migrate
+```
+
+* MySQL tables -> Django models
+```commandline
+python manage.py inspectdb > library/models.py
+```
+
+* create superuser
+```commandline
+python manage.py createsuperuser
+```
+
+* run server
+```commandline
+python manage.py runserver
+```
 
 ## Author
 
